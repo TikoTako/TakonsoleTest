@@ -1,0 +1,14 @@
+﻿<Window x:Class="TakonsoleTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TakonsoleTest"
+        mc:Ignorable="d"
+        Title="Takonsole test" MinHeight="100" MinWidth="200" WindowStartupLocation="CenterScreen" WindowStyle="SingleBorderWindow" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
+    <Grid Height="100" Width="200">
+        <Button x:Name="Alloc" IsEnabled="True" Content="Alloc()" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Click="Alloc_Click"/>
+        <Button x:Name="Test1" IsEnabled="False" Content="Rainbow" HorizontalAlignment="Center" Margin="0,40,0,0" VerticalAlignment="Top" Click="Test1_Click"/>
+        <Button x:Name="Test2" IsEnabled="False" Content="Static methods called with Action" HorizontalAlignment="Center" Margin="0,70,0,0" VerticalAlignment="Top" Click="Test2_Click"/>
+    </Grid>
+</Window>
