@@ -5,10 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TakonsoleTest"
         mc:Ignorable="d"
-        Title="Takonsole test" MinHeight="100" MinWidth="200" WindowStartupLocation="CenterScreen" WindowStyle="SingleBorderWindow" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
-    <Grid Height="100" Width="200">
+        Title="Takonsole test" MinHeight="250" MinWidth="300" WindowStartupLocation="CenterScreen" WindowStyle="SingleBorderWindow" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
+    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
         <Button x:Name="Alloc" IsEnabled="True" Content="Alloc()" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Click="Alloc_Click"/>
         <Button x:Name="Test1" IsEnabled="False" Content="Rainbow" HorizontalAlignment="Center" Margin="0,40,0,0" VerticalAlignment="Top" Click="Test1_Click"/>
-        <Button x:Name="Test2" IsEnabled="False" Content="Static methods called with Action" HorizontalAlignment="Center" Margin="0,70,0,0" VerticalAlignment="Top" Click="Test2_Click"/>
+        <Button x:Name="Test2" IsEnabled="False" Content="Out, Inf, Warn, Err" HorizontalAlignment="Center" Margin="0,70,0,0" VerticalAlignment="Top" Click="Test2_Click"/>
+        <Button x:Name="Test3" IsEnabled="False" Content="Lots of colors" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top" Click="Test3_Click"/>
+        <Button x:Name="Test4" IsEnabled="False" Content="Switch fonts (Consolas, Lucida, etc...)" HorizontalAlignment="Center" Margin="0,130,0,0" VerticalAlignment="Top" Click="Test4_Click"/>
+        <Button x:Name="Test5" IsEnabled="False" Content="Color scheme 1" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top" Click="Test5_Click"/>
+        <Button x:Name="Test6" IsEnabled="False" Content="Color scheme 2" HorizontalAlignment="Center" Margin="0,160,0,0" VerticalAlignment="Top" Click="Test5_Click"/>
+        <Button x:Name="Test7" IsEnabled="False" Content="Color scheme 3" HorizontalAlignment="Right" Margin="0,160,10,0" VerticalAlignment="Top" Click="Test5_Click"/>
+        <Button x:Name="Test8" IsEnabled="False" Content="List all the colors in Color" HorizontalAlignment="Center" Margin="0,190,0,0" VerticalAlignment="Top" Click="Test8_Click"/>
     </Grid>
 </Window>
