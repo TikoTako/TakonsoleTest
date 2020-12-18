@@ -5,16 +5,116 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TakonsoleTest"
         mc:Ignorable="d"
-        Title="Takonsole test" MinHeight="250" MinWidth="300" WindowStartupLocation="CenterScreen" WindowStyle="SingleBorderWindow" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
-    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-        <Button x:Name="Alloc" IsEnabled="True" Content="Alloc()" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Click="Alloc_Click"/>
-        <Button x:Name="Test1" IsEnabled="False" Content="Rainbow" HorizontalAlignment="Center" Margin="0,40,0,0" VerticalAlignment="Top" Click="Test1_Click"/>
-        <Button x:Name="Test2" IsEnabled="False" Content="Out, Inf, Warn, Err" HorizontalAlignment="Center" Margin="0,70,0,0" VerticalAlignment="Top" Click="Test2_Click"/>
-        <Button x:Name="Test3" IsEnabled="False" Content="Lots of colors" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top" Click="Test3_Click"/>
-        <Button x:Name="Test4" IsEnabled="False" Content="Switch fonts (Consolas, Lucida, etc...)" HorizontalAlignment="Center" Margin="0,130,0,0" VerticalAlignment="Top" Click="Test4_Click"/>
-        <Button x:Name="Test5" IsEnabled="False" Content="Color scheme 1" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top" Click="Test5_Click"/>
-        <Button x:Name="Test6" IsEnabled="False" Content="Color scheme 2" HorizontalAlignment="Center" Margin="0,160,0,0" VerticalAlignment="Top" Click="Test5_Click"/>
-        <Button x:Name="Test7" IsEnabled="False" Content="Color scheme 3" HorizontalAlignment="Right" Margin="0,160,10,0" VerticalAlignment="Top" Click="Test5_Click"/>
-        <Button x:Name="Test8" IsEnabled="False" Content="List all the colors in Color" HorizontalAlignment="Center" Margin="0,190,0,0" VerticalAlignment="Top" Click="Test8_Click"/>
+        Title="Takonsole test" MinHeight="270" MinWidth="620" WindowStartupLocation="CenterScreen" WindowStyle="SingleBorderWindow" ResizeMode="NoResize" SizeToContent="WidthAndHeight" >
+    <Grid x:Name="theGrid" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0,0,0,10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+
+        <GroupBox x:Name="groupBox1" Grid.Column="0" Header="Console" HorizontalAlignment="Left" VerticalAlignment="Top" Width="auto" Height="auto"  Margin="10,10,0,0">
+            <StackPanel Width="250">
+                <Button x:Name="AllocDeallocButton" IsEnabled="True" Content="Alloc()" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="10,10,10,0" Click="AllocDeallocButton_Click"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="10,10,10,10" >
+                    <ComboBox x:Name="fontsComboBox" Width="170" SelectionChanged="FontsComboBoxes_SelectionChanged" IsEnabled="False" />
+                    <ComboBox x:Name="fontsSizeComboBox" Width="50" Margin="10,0,0,0"  SelectionChanged="FontsComboBoxes_SelectionChanged" IsEnabled="False">
+                        <ComboBoxItem Content="10" IsSelected="True"/>
+                        <ComboBoxItem Content="12"/>
+                        <ComboBoxItem Content="14"/>
+                        <ComboBoxItem Content="18"/>
+                        <ComboBoxItem Content="24"/>
+                        <ComboBoxItem Content="30"/>
+                        <ComboBoxItem Content="36"/>
+                        <ComboBoxItem Content="42"/>
+                        <ComboBoxItem Content="48"/>
+                        <ComboBoxItem Content="54"/>
+                        <ComboBoxItem Content="60"/>
+                        <ComboBoxItem Content="72"/>
+                    </ComboBox>
+                </StackPanel>
+                <Button x:Name="LoadAllTheFonts" IsEnabled="False" Content="Load out of specification fonts" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="10,0,10,10" Click="LoadAllTheFonts_Click"/>
+            </StackPanel>
+        </GroupBox>
+
+        <GroupBox x:Name="groupBox2" Grid.Column="1" Header="Tests" HorizontalAlignment="Left" VerticalAlignment="Top" Width="auto" Height="auto"  Margin="10,10,0,0">
+            <StackPanel>
+                <Button x:Name="Test1" IsEnabled="False" Content="Rainbow"                      HorizontalAlignment="Stretch" Margin="10,10,10,0" VerticalAlignment="Top" Click="Test1_Click"/>
+                <Button x:Name="Test2" IsEnabled="False" Content="Out, Inf, Warn, Err"          HorizontalAlignment="Stretch" Margin="10,10,10,0" VerticalAlignment="Top" Click="Test2_Click"/>
+                <Button x:Name="Test3" IsEnabled="False" Content="Lots of colors"               HorizontalAlignment="Stretch" Margin="10,10,10,0" VerticalAlignment="Top" Click="Test3_Click"/>
+                <Button x:Name="Test8" IsEnabled="False" Content="List all the colors in Color" HorizontalAlignment="Stretch" Margin="10,10,10,10" VerticalAlignment="Top" Click="Test8_Click"/>
+            </StackPanel>
+        </GroupBox>
+
+        <GroupBox x:Name="groupBox3" Header="Color schemes" HorizontalAlignment="Left" VerticalAlignment="Top" Width="auto" Height="auto"  Margin="10,10,10,0" Grid.Column="2">
+            <StackPanel>
+                <RadioButton x:Name="schemeButan1" Tag="1" GroupName="colorSchemes" IsChecked="True"   Grid.Column="2" HorizontalAlignment="Stretch" Margin="10,10,0,0" VerticalAlignment="Top" Checked="SchemeButans_Checked" IsEnabled="False">
+                    <Grid>
+                        <Label BorderBrush="Transparent" Padding="0,0,0,0">Normal</Label>
+                        <Border BorderThickness="0,2,0,0" BorderBrush="Black" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="1"/>
+                    </Grid>
+                </RadioButton>
+                <RadioButton x:Name="schemeButan2" Tag="2" GroupName="colorSchemes" Content="Custom 1"                  Grid.Column="2" HorizontalAlignment="Stretch" Margin="10,10,0,0" VerticalAlignment="Top" Checked="SchemeButans_Checked" IsEnabled="False"/>
+                <RadioButton x:Name="schemeButan3" Tag="3" GroupName="colorSchemes" Content="Custom 2"                  Grid.Column="2" HorizontalAlignment="Stretch" Margin="10,10,0,0" VerticalAlignment="Top" Checked="SchemeButans_Checked" IsEnabled="False"/>
+                <Button x:Name="Test7" IsEnabled="False" Content="Apply" HorizontalAlignment="Stretch" Margin="10,10,10,10" VerticalAlignment="Top" Click="Test7_Click"/>
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="boxTimeStamp" BorderBrush="Transparent" Background="#FFFFF300" Height="15" Margin="10,0,0,0"  Width="15" BorderThickness="2,2,2,2" Click="ColorBox_Click" MouseEnter="ColorBox_MouseEnter" MouseLeave="ColorBox_MouseLeave" IsEnabled="False" />
+                    <Button x:Name="boxNormal" BorderBrush="Transparent" Background="#FFFFF300" Height="15" Margin="10,0,0,0"  Width="15" BorderThickness="2,2,2,2" Click="ColorBox_Click" MouseEnter="ColorBox_MouseEnter" MouseLeave="ColorBox_MouseLeave" IsEnabled="False" />
+                    <Button x:Name="boxInformation" BorderBrush="Transparent" Background="#FFFFF300" Height="15" Margin="10,0,0,0"  Width="15" BorderThickness="2,2,2,2" Click="ColorBox_Click" MouseEnter="ColorBox_MouseEnter" MouseLeave="ColorBox_MouseLeave" IsEnabled="False" />
+                    <Button x:Name="boxWarning" BorderBrush="Transparent" Background="#FFFFF300" Height="15" Margin="10,0,0,0"  Width="15" BorderThickness="2,2,2,2" Click="ColorBox_Click" MouseEnter="ColorBox_MouseEnter" MouseLeave="ColorBox_MouseLeave" IsEnabled="False" />
+                    <Button x:Name="boxError" BorderBrush="Transparent" Background="#FFFFF300" Height="15" Margin="10,0,0,0"  Width="15" BorderThickness="2,2,2,2" Click="ColorBox_Click" MouseEnter="ColorBox_MouseEnter" MouseLeave="ColorBox_MouseLeave" IsEnabled="False" />
+                    <Button x:Name="boxBackground" BorderBrush="Transparent" Background="#FFFFF300" Height="15" Margin="10,0,0,0"  Width="15" BorderThickness="2,2,2,2" Click="ColorBox_Click" MouseEnter="ColorBox_MouseEnter" MouseLeave="ColorBox_MouseLeave" IsEnabled="False" />
+                </StackPanel>
+                <Slider x:Name="sliderR" Width="auto" HorizontalAlignment="Stretch" Margin="10,10,10,0" VerticalAlignment="Top" Maximum="255" SmallChange="1" MouseWheel="Sliders_MouseWheel" ValueChanged="Sliders_ValueChanged" IsEnabled="False" >
+                    <Slider.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <LinearGradientBrush.RelativeTransform>
+                                <TransformGroup>
+                                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                    <RotateTransform Angle="270" CenterY="0.5" CenterX="0.5"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </LinearGradientBrush.RelativeTransform>
+                            <GradientStop Color="Black"/>
+                            <GradientStop Color="#ffff0000" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Slider.Background>
+                </Slider>
+                <Slider x:Name="sliderG" Width="auto" HorizontalAlignment="Stretch" Margin="10,10,10,0" VerticalAlignment="Top" Maximum="255" SmallChange="1" MouseWheel="Sliders_MouseWheel" ValueChanged="Sliders_ValueChanged" IsEnabled="False" >
+                    <Slider.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <LinearGradientBrush.RelativeTransform>
+                                <TransformGroup>
+                                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                    <RotateTransform Angle="270" CenterY="0.5" CenterX="0.5"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </LinearGradientBrush.RelativeTransform>
+                            <GradientStop Color="Black"/>
+                            <GradientStop Color="#ff00ff00" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Slider.Background>
+                </Slider>
+                <Slider x:Name="sliderB" Width="auto" HorizontalAlignment="Stretch" Margin="10,10,10,10" VerticalAlignment="Top" Maximum="255" SmallChange="1" MouseWheel="Sliders_MouseWheel" ValueChanged="Sliders_ValueChanged" IsEnabled="False" >
+                    <Slider.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <LinearGradientBrush.RelativeTransform>
+                                <TransformGroup>
+                                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                    <RotateTransform Angle="270" CenterY="0.5" CenterX="0.5"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </LinearGradientBrush.RelativeTransform>
+                            <GradientStop Color="Black"/>
+                            <GradientStop Color="#ff0000ff" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Slider.Background>
+                </Slider>
+            </StackPanel>
+        </GroupBox>
+
     </Grid>
 </Window>

@@ -1,10 +1,13 @@
 # TakonsoleTest
-<img alt="screenshot" src="https://raw.githubusercontent.com/TikoTako/TikoTako/main/img/ss%201.png" height="200"/><br/>
+<img alt="screenshot" src="screenshots/ss%20(3).png" height="300"/><br/>
 Simple Takonsole test program.
 
 ```
 Nuget:
 > Install-Package Takonsole
+
+Also this is required to list the system fonts:
+> Install-Package System.Drawing.Common
 ```
 
 **LINKS**
@@ -14,8 +17,7 @@ Nuget:
 
 **SCREENSHOTS**
 
-<img alt="screenshot" src="https://raw.githubusercontent.com/TikoTako/TikoTako/main/img/ss%201.png" height="200"/>
-<img alt="screenshot" src="https://raw.githubusercontent.com/TikoTako/TikoTako/main/img/ss%202.png" height="200"/><br/>
-<img alt="screenshot" src="https://raw.githubusercontent.com/TikoTako/TikoTako/main/img/ss%203.png" height="200"/>
-<img alt="screenshot" src="https://raw.githubusercontent.com/TikoTako/TikoTako/main/img/ss%204.png" height="200"/><br/>
-<img alt="screenshot" src="https://raw.githubusercontent.com/TikoTako/TikoTako/main/img/ss%205.png" height="200"/>
+|<img alt="screenshot" src="screenshots/ss%20(3).png" height="300"/>|<img alt="screenshot" src="screenshots/ss%20(1).png" height="300"/>|
+|---|---|
+|<img alt="screenshot" src="screenshots/ss%20(2).png" height="300"/>|<img alt="screenshot" src="screenshots/ss%20(4).png" height="300"/>|
+|<img alt="screenshot" src="screenshots/ss%20(5).png" height="300"/>| |
